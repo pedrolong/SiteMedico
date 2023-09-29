@@ -1,0 +1,452 @@
+< !DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Home Health Care</title><link href="style.css" rel="stylesheet" type="text/css" /><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,500&display=swap" rel="stylesheet"></head><body><div class="tela"><div class="cabeçalho"><img class="logo" src="images/image_1.png"><h1 class="titulo">Health <br>Care </h1><button class="login"><img class="login2" src="images/3607444_1.png"><h1 class="login3">Login </h1></button><div class="botoes-cabeçalho"><button class="assine-plano">Assine nosso plano </button><button class="contato">Contatos </button><button class="atendimentos">Atendimentos </button><button class="quem-somos">Quem Nós Somos </button></div></div><div class="rodape"><div class="localizaçao"><img class="localizaçao1" src="images/images_1.png"><h1 class="localizaçao2">Localize sua Health Care mais proxima </h1></div><div class="baixe-aplicativo"><img class="baixe-aplicativo2" src="images/images_2.png"><h1 class="baixe-aplicativo3">Baixe nosso aplicativo </div><div class="redes-sociais"><img class="redes-sociais2" src="images/images__1__2.png"></div></div></div></body>html {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+
+body {
+  margin: 0px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.tela {
+  height: 1069px;
+  width: 1348px;
+
+}
+
+.cabeçalho {
+  height: 150px;
+  width: 100%;
+  background-color: #01AE7A;
+  top: 0%;
+  position: absolute;
+  left: 0%;
+  margin: 0px;
+  border: 0px;
+
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 5%;
+  position: absolute;
+  left: 10px;
+  top: 10%;
+  align-items: center;
+  justify-items: center;
+}
+
+.titulo {
+  font-size: 40px;
+  position: absolute;
+  left: 150px;
+  top: -10px;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  cursor: default;
+}
+
+.assine-plano {
+  width: 250px;
+  height: 40px;
+  position: absolute;
+  top: 110px;
+  left: 20%;
+  background-color: #01AE7A;
+  border: 1px;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.quem-somos {
+  width: 250px;
+  height: 40px;
+  position: absolute;
+  top: 110px;
+  left: 40%;
+  background-color: #01AE7A;
+  border: 1px;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.atendimentos {
+  width: 250px;
+  height: 40px;
+  position: absolute;
+  top: 110px;
+  left: 60%;
+  background-color: #01AE7A;
+  border: 1px;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.contato {
+  width: 250px;
+  height: 40px;
+  position: absolute;
+  top: 110px;
+  left: 80%;
+  background-color: #01AE7A;
+  border: 1px;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.login {
+  position: absolute;
+  left: 80%;
+  background-color: white;
+  top: 10%;
+  height: 50px;
+  width: 200px;
+  border-radius: 100px;
+  border: 0px;
+  cursor: pointer;
+}
+
+.login2 {
+  height: 100%;
+  width: 50px;
+  left: 0%;
+  top: 0%;
+  position: absolute;
+}
+
+.login3 {
+  position: absolute;
+  font-size: 30px;
+  top: -15px;
+  left: 33%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.rodape {
+  height: 100px;
+  width: 100%;
+  background-color: #01AE7A;
+  top: 100%;
+  position: absolute;
+  left: 0%;
+  margin: 0px;
+  border: 0px;
+}
+
+.localizaçao {
+  width: 435px;
+  height: 60px;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  margin-left: 20px;
+  display: flex;
+}
+
+.baixe-aplicativo {
+  width: 455px;
+  height: 60px;
+
+  position: absolute;
+  left: 650px;
+  top: 20%;
+  display: flex;
+}
+
+.redes-sociais {
+  width: 435px;
+  height: 60px;
+  position: absolute;
+  right: 50px;
+  top: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.localizaçao1 {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.localizaçao2 {
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  position: absolute;
+  top: 0%;
+  left: 65px;
+  cursor: default;
+}
+
+.baixe-aplicativo2 {
+  height: 45px;
+  width: 140px;
+  position: absolute;
+  top: 35%;
+  left: 170px;
+  border-radius: 50px;
+}
+
+.baixe-aplicativo3 {
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  position: absolute;
+  top: -40%;
+  left: 150px;
+  cursor: default;
+}
+
+.redes-sociais2 {
+  height: 45px;
+  width: 45px;
+  position: absolute;
+  top: 35%;
+  justify-content: center;
+  border-radius: 10px;
+  right: 55%;
+}
+
+.redes-sociais3 {
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  position: absolute;
+  top: -40%;
+  cursor: default;
+}
+
+.redes-sociais4 {
+  height: 45px;
+  width: 45px;
+  position: absolute;
+  top: 35%;
+  justify-content: center;
+  border-radius: 10px;
+  right: 40%;
+}
+
+.corpo {
+  background-color: white;
+  width: 100%;
+  height: 820px;
+  position: absolute;
+  top: 150px;
+}
+
+.image1 {
+  width: 400px;
+  height: 250px;
+  border-radius: 10px;
+  margin-inline: 50px;
+}
+
+.topo {
+  width: 100%;
+  height: 270px;
+  margin-top: 10px;
+  align-items: center;
+  display: flex;
+}
+
+.lema {
+  width: 1350px;
+  height: 250px;
+  background-color: #01AE7A;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 50px;
+}
+
+.saude-todos {
+  background-color: #0E8F42;
+  width: 300px;
+  height: 150px;
+  margin-inline: 50px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.saude-todos2 {
+  color: white;
+  font-size: 40px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+.todos-saude {
+  background-color: #2BC73B;
+  width: 300px;
+  height: 150px;
+  margin-inline: 50px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.todos-saude2 {
+  color: white;
+  font-size: 40px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+.saude-health {
+  background-color: #2AC267;
+  width: 300px;
+  height: 150px;
+  margin-inline: 50px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.saude-health2 {
+  color: white;
+  font-size: 40px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+.image2 {
+  width: 470px;
+  height: 300px;
+  border-radius: 10px;
+  position: absolute;
+  top: 500px;
+  left: 50px;
+}
+
+.planos-familia {
+  width: 500px;
+  height: 100px;
+  background-color: #01AE7A;
+  position: absolute;
+  margin-left: 50px;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+.image3 {
+  width: 470px;
+  height: 300px;
+  border-radius: 10px;
+  left: 700px;
+  position: absolute;
+
+}
+
+.nosso-atendimento {
+  width: 500px;
+  height: 100px;
+  top: 650px;
+  position: absolute;
+  right: 38%;
+  background-color: #01AE7A;
+  border-radius: 10px;
+  display: flex;
+}
+
+.image4 {
+  width: 470px;
+  height: 300px;
+  border-radius: 10px;
+  right: 50px;
+  top: 500px;
+  position: absolute;
+}
+
+.atendimento-personalizado {
+  width: 500px;
+  height: 100px;
+  background-color: #01AE7A;
+  position: absolute;
+  right: 10px;
+  margin-top: 50px;
+  margin-right: 50px;
+  border-radius: 10px;
+
+  text-align: center;
+
+}
+
+.titulo2 {
+  font-size: 30px;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.titulo3 {
+  font-size: 25px;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.titulo4 {
+  font-size: 30px;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.botoes-cabeçalho {
+  display: flex;
+  flex-direction: row;
+  margin-left: 200px;
+  margin-top: 65px;
+  padding: 13px;
+  text-decoration: none;
+  color: white;
+}
+
+nav {
+    float: right;
+    margin-top: 0px;
+    font-size: 25px;
+    margin-right: 100px;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    margin-right: 100px;
+    padding: 10px;
+    color: white;
+}
+
+li {
+    text-decoration: none;
+    color: white;
+    padding-left: 150px;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+  }
