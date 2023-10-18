@@ -1,6 +1,22 @@
+const mysql = require('mysql');
 const express = require('express');
 const app = express();
 const port = 3000; // Porta em que o servidor será executado
+
+// Configurar a conexão com o banco de dados MySQL 
+const db = mtsql.createConnection({
+    host: 'localhost',
+    user:'phpmyadmin',
+    password: 'aluno',
+    database: 'Medical',
+ }) 
+
+
+
+
+
+
+
 // Rota para exibir a página HTML
 app.get('/', (req, res) => {
 res.sendFile(__dirname + '/index.html');
