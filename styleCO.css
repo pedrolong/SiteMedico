@@ -1,0 +1,110 @@
+
+html {
+   
+    height: 100%;
+    width: 100%; 
+    
+  }
+.e1116_469 { 
+   height: 100%; 
+   width: 100%;
+   
+}
+.e1116_469 { 
+	background-color:rgba(255, 255, 255, 1);
+	width:100%;
+	height:100%;
+		
+}
+.e1116_470 { 
+	background-color:rgba(1.452084481716156, 174.25000101327896, 122.41059109568596, 1);
+	width:2000px;
+	height:120px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	display: none;
+	
+}
+.e1116_472 { 
+	background-color:rgba(1.452084481716156, 174.25000101327896, 122.41059109568596, 1);
+	width:1900px;
+	height:120px;
+	position:absolute;
+	left:0px;
+	top:850px;
+}
+.e1116_474 { 
+	color:rgba(255, 255, 255, 1);
+	width:500px;
+	height:38px;
+	position:absolute;
+	left:650px;
+	top:95px;
+	font-family:Open Sans;
+	text-align:center;
+	font-size:32px;
+	letter-spacing:0;
+}
+.e1116_494 { 
+	background-color:rgba(255, 255, 255, 1);
+	width:217px;
+	height:62px;
+	position:absolute;
+	left:1500px;
+	top:25px;
+	border-radius:15px;
+}
+.e1116_496 { 
+	color:rgba(0, 0, 0, 1);
+	width:208.49996948242188px;
+	height:39.75px;
+	position:absolute;
+	left:1535px;
+	top:36px;
+	font-family:Open Sans;
+	text-align:center;
+	font-size:32px;
+	letter-spacing:0;
+}
+.e1116_509 { 
+	background-color:rgba(255, 255, 255, 1);
+	width:200px;
+	height:229px;
+	position:absolute;
+	left:1030px;
+	top:410px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+}
+.e1116_524 { 
+	background-color:rgba(1.0000000591389835, 174.00000482797623, 122.00000032782555, 1);
+	width:500px;
+	height:44px;
+	position:absolute;
+	left:650px;
+	top:450px;
+}
+.e1116_527 { 
+	background-color:rgba(1.0000000591389835, 174.00000482797623, 122.00000032782555, 1);
+	width:2000px;
+	height:150px;
+	position:absolute; 
+	left:0px;
+	margin-top: -10px;
+	z-index: -1;
+} 
+.e1116_528 { 
+	color:rgba(0, 0, 0, 1);
+	width:700px;
+	height:70px;
+	position:absolute;
+	left:549px;
+	top:454px;
+	font-family:Open Sans;
+	text-align:center;
+	font-size:28px;
+	letter-spacing:0;
+}
