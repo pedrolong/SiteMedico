@@ -35,7 +35,7 @@ html {
 	background-repeat:no-repeat;
 	background-size:cover;
 	z-index: 3;
-	display: ;
+	display:1;
 }
 .e1116_472 { 
 	background-color:rgba(1.452084481716156, 174.25000101327896, 122.41059109568596, 1);
@@ -301,3 +301,12 @@ html {
 	font-size:20px;
 	letter-spacing:0;
 }
+.e1116_527 { 
+	background-color:rgba(1.0000000591389835, 174.00000482797623, 122.00000032782555, 1);
+	width:2000px;
+	height:150px;
+	position:absolute; 
+	left:0px;
+	margin-top: -10px;
+	z-index: -1;
+} 
