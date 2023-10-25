@@ -91,7 +91,7 @@
 	height: 60px;
 	position: absolute;
 	left: 175px;
-	top: 405px;
+	top: 368px;
 	font-family: Open Sans;
 	text-align: center;
 	font-size: 40px;
@@ -313,10 +313,10 @@
 
 .e559_179 {
 	color: rgba(10.625000316649675, 10.492187943309546, 10.492187943309546, 1);
-	width: 501px;
+	width: 701px;
 	height: 44px;
 	position: absolute;
-	left: 128px;
+	left: 50px;
 	top: 222px;
 	font-family: Inter;
 	text-align: center;
@@ -330,8 +330,8 @@
 	width: 355px;
 	height: 49px;
 	position: absolute;
-	left: 842px;
-	top: 219px;
+	left: 855px;
+	top: 197px;
 	font-family: Open Sans;
 	text-align: center;
 	font-size: 36px;
@@ -415,4 +415,23 @@
 	position: absolute;
 	margin-top: 0;
 	margin-left: 0;
+	background-image: url("assents/logo.png");
 } 
+
+.teste { 
+	height: 70px;
+	width: 70px;
+
+	position: absolute;
+	top: 50px;
+	margin-left: 1477px;
+	z-index: 2;
+
+	background-image: url("assents/icone\ login.png");
+	background-size:cover;
+	
+} 
+
+
+
+
