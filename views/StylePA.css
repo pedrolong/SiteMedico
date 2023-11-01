@@ -4,6 +4,24 @@ html {
     height: 100%;
     width: 100%; 
   }
+
+  .logo{
+
+	width: 100px;
+
+	height: 100px;
+  }
+  .login2{
+
+	transform: rotate(270deg);
+	width: 60px;
+
+	height: 60px;
+	position: relative; /* Define a posição relativa para o elemento. */
+	top: -1105px; /* Move o elemento 20 pixels para cima (negativo move para cima). */
+	left: -83px; /* Move o elemento 20 pixels para a direita. */
+	
+  }
 .e1116_469 { 
    height: 100%; 
    width: 100%;
@@ -79,7 +97,7 @@ html {
 	position:absolute;
 	left:1500px;
 	top:25px;
-	border-radius:15px;
+	border-radius:100px;
 }
 .e1116_495 { 
 	transform: rotate(1.4760708726981417deg);
@@ -112,7 +130,7 @@ html {
 .e1116_506 { 
 	background-color:rgba(217.0000022649765, 217.0000022649765, 217.0000022649765, 1);
 	width:842px;
-	height:378px;
+	height:478px;
 	position:absolute;
 	left:490px;
 	top:300px;
@@ -277,18 +295,7 @@ html {
 	font-size:12px;
 	letter-spacing:0;
 }
-.e1116_525 { 
-	background-color:rgba(1.0000000591389835, 174.00000482797623, 122.00000032782555, 1);
-	width:315px;
-	height:34px;
-	position:absolute;
-	left:26px;
-	top:120px;
-	border-top-left-radius:10px;
-	border-top-right-radius:10px;
-	border-bottom-left-radius:10px;
-	border-bottom-right-radius:10px;
-}
+
 .e1116_526 { 
 	color:rgba(255, 255, 255, 1);
 	width:200px;
@@ -310,3 +317,40 @@ html {
 	margin-top: -10px;
 	z-index: -1;
 } 
+
+.form {
+	width: 300px;
+	margin: 0 auto;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #f9f9f9;
+	text-align: center;
+  }
+  
+  /* Estilos gerais para todos os campos de entrada */
+  input[type="text"],
+  input[type="time"],
+  input[type="date"] {
+	width: 100%; /* Todos os campos têm a mesma largura */
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	
+  }
+  
+  .botao{
+	background-color: rgba(1.0000000591389835, 174.00000482797623, 122.00000032782555, 1);
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+  }
+  
+  .botao{
+	background-color: rgba(1.0000000591389835, 174.00000482797623, 122.00000032782555, 1);
+  }
+  
