@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 25/10/2023 às 08:22
+-- Tempo de geração: 25/10/2023 às 13:50
 -- Versão do servidor: 10.6.12-MariaDB-0ubuntu0.22.04.1
 -- Versão do PHP: 8.1.2-1ubuntu2.14
 
@@ -85,7 +85,8 @@ INSERT INTO `agendamento` (`id`, `data`, `horario`, `especialidade`) VALUES
 (44, '', '', ''),
 (45, '', '', ''),
 (46, '', '', ''),
-(47, 'gh', 'er', 'qwer');
+(47, 'gh', 'er', 'qwer'),
+(48, 'bn', 'bn', 'jh');
 
 --
 -- Índices para tabelas despejadas
@@ -105,7 +106,7 @@ ALTER TABLE `agendamento`
 -- AUTO_INCREMENT de tabela `agendamento`
 --
 ALTER TABLE `agendamento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

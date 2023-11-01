@@ -3,15 +3,61 @@
 <head>
   <title>Login</title>
 </head>
+<style>
+  html {
+    height: 100%;
+  }
+  /* Define a fonte e o tamanho do texto para toda a página */
+  *
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background: linear-gradient(180deg, #01ae7a 0%, rgba(255,255,255,1) 100%);
+}
+a {
+  color: black;
+}
+h1 {
+    font-family: georgia;
+    font-size: 50px;
+}
+
+form {
+    text-align: center;
+    width: 100%;
+}
+
+.inputs{
+    width: 500px;
+    height: 20px;
+    border-radius: 10px;
+}
+.input {
+  text-align: center;
+}
+button {
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: #01ae7a;
+    transition: 0.3s;
+    font-family: georgia;
+    font-size: 20px;
+}
+
+
+
+</style>
 <body>
-  <h1>Login</h1>
-  <form method="POST" action="/login">
-    <input type="text" name="username" placeholder="Nome de usuário">
-    <input type="password" name="password" placeholder="Senha">
-    <input type="radio" name="tipo" value="medico"> Médico
-    <input type="radio" name="tipo" value="paciente"> Paciente
+  
+  <form method="post" action="/login">
+    <h1>Login</h1>
+    <input class="inputs" type="text" name="username" placeholder="Nome de usuário"><br><br>
+    <input class="inputs" type="password" name="password" placeholder="Senha"><br><br>
+    <input class="input" type="radio" name="tipo" value="medico"> Médico
+    <input class="input" type="radio" name="tipo" value="paciente"> Paciente<br><br>
     <button type="submit">Login</button>
-    <a href="http://localhost:3000/cadastro"><p>cadastre-se</p></a>
+    <a href="/Cadastro"><p>Cadastre-se</p></a>
   </form>
 </body>
 </html>
