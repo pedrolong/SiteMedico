@@ -1,63 +1,86 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Login</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      background: linear-gradient(180deg, #01ae7a 0%, rgba(255, 255, 255, 1) 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    .inputs {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .input[type="radio"] {
+      margin: 0 5px;
+    }
+
+    button[type="submit"] {
+      background: #01ae7a;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
 </head>
-<style>
-  html {
-    height: 100%;
-  }
-  /* Define a fonte e o tamanho do texto para toda a página */
-  *
-body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  background: linear-gradient(180deg, #01ae7a 0%, rgba(255,255,255,1) 100%);
-}
-a {
-  color: black;
-}
-h1 {
-    font-family: georgia;
-    font-size: 50px;
-}
 
-form {
-    text-align: center;
-    width: 100%;
-}
-
-.inputs{
-    width: 500px;
-    height: 20px;
-    border-radius: 10px;
-}
-.input {
-  text-align: center;
-}
-button {
-    width: 150px;
-    height: 35px;
-    border-radius: 10px;
-    background-color: #01ae7a;
-    transition: 0.3s;
-    font-family: georgia;
-    font-size: 20px;
-}
-
-
-
-</style>
 <body>
-  
   <form method="post" action="/login">
     <h1>Login</h1>
     <input class="inputs" type="text" name="username" placeholder="Nome de usuário"><br><br>
     <input class="inputs" type="password" name="password" placeholder="Senha"><br><br>
-    <input class="input" type="radio" name="tipo" value="medico"> Médico
-    <input class="input" type="radio" name="tipo" value="paciente"> Paciente<br><br>
+    <label for="medico" class="input">
+      <input type="radio" name="tipo" id="medico" value="medico"> Médico
+    </label>
+    <label for="paciente" class="input">
+      <input type="radio" name="tipo" id="paciente" value="paciente"> Paciente
+    </label><br><br>
     <button type="submit">Login</button>
     <a href="/Cadastro"><p>Cadastre-se</p></a>
   </form>
 </body>
+
 </html>

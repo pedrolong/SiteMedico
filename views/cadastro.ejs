@@ -6,92 +6,109 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      text-align: center;
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
     }
 
-    h1 {
-      background-color: #01ae7a;
-      color: #fff;
-      padding: 20px;
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      background: linear-gradient(180deg, #01ae7a 0%, rgba(255, 255, 255, 1) 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     form {
-      background-color: #fff;
+      background: #fff;
+      padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      margin: 0 auto;
-      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
     }
 
-    label {
-      display: block;
-      margin-top: 10px;
+    h1 {
+      font-size: 24px;
     }
 
-    input[type="text"],
-    input[type="password"],
-    input[type="email"],
-    input[type="date"],
-    select {
+    .inputs {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
+      margin: 10px 0;
       border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
+      border-radius: 5px;
     }
 
-    input[type="submit"] {
-      background-color: #01ae7a;
+    .input[type="radio"] {
+      margin: 0 5px;
+    }
+
+    button[type="submit"] {
+      background: #01ae7a;
       color: #fff;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border: none;
-      border-radius: 4px;
+      border-radius: 5px;
       cursor: pointer;
-      margin-top: 15px;
+      font-size: 18px;
+      margin-top: 20px; /* Aumentei a margem inferior para separar do conteúdo abaixo */
     }
 
-    input[type="submit"]:hover {
-      background-color: #01ae7a;
+    a {
+      text-decoration: none;
+      margin-top: 10px; /* Aumentei a margem superior para separar do conteúdo acima */
+      display: block; /* Coloquei display:block para que o link ocupe a largura total */
+      font-size: 18px; /* Aumentei o tamanho da fonte do link */
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .cadastro1 {
+      position: absolute;
+      top: 50px;
+      left: 800px;
+      font-size: 42px;
     }
   </style>
 </head>
 
 <body>
-  <h1>Cadastro</h1>
+  <div class="cadastro1">CADASTRO</div>
   <form action="/cadastro" method="POST">
     <label for="username">Usuário:</label>
-    <input type="text" id="username" name="username" required>
+    <input class="inputs" type="text" id="username" name="username" required>
 
     <label for="password">Senha:</label>
-    <input type="password" id="password" name="password" required>
+    <input class="inputs" type="password" id="password" name="password" required>
 
     <label for="cpf">CPF:</label>
-    <input type="text" id="cpf" name="cpf" required>
+    <input class="inputs" type="text" id="cpf" name="cpf" required>
 
     <label for="numero_telefone">Número de Telefone:</label>
-    <input type="text" id="numero_telefone" name="numero_telefone" required>
+    <input class="inputs" type="text" id="numero_telefone" name="numero_telefone" required>
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+    <input class="inputs" type="email" id="email" name="email" required>
 
     <label for="data_nascimento">Data de Nascimento:</label>
-    <input type="date" id="data_nascimento" name="data_nascimento" required>
+    <input class="inputs" type="date" id="data_nascimento" name="data_nascimento" required>
 
     <label for="tipo">Tipo:</label>
-    <select id="tipo" name="tipo" required>
+    <select class="inputs" id="tipo" name="tipo" required>
       <option value="medico">Médico</option>
       <option value="paciente">Paciente</option>
     </select>
 
-    <input type="submit" value="Cadastrar">
+    <button type="submit">Cadastrar</button>
+    <a href="/login">Login</a>
   </form>
 </body>
-
-
 
 </html>
