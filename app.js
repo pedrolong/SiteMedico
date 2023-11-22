@@ -110,7 +110,8 @@ app.post('/cadastro', (req, res) => {
                 if (err) {
                     res.status(500).send('Erro no servidor ao criar login');
                 } else {
-                    res.send('Cadastro e login realizados com sucesso <a href="/login"> Volte para a página de login></a>');
+                    res.redirect('/login');
+                    app.use(express.static(__dirname +  '/'));
                 }
             });
         }
@@ -144,7 +145,7 @@ app.post('/login', (req, res) => {
                 }
             });
         } else {
-            res.send('Nome de usuário ou senha incorretos');
+            res.render('login', { error: 'Nome de usuário ou senha incorretos' });
         }
     });
 });
