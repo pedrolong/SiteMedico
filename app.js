@@ -177,3 +177,8 @@ app.use(express.static(__dirname + '/Images'));
 app.listen(port, () => {
     console.log(`Servidor Node.js está executando na porta ${port}`);
 });
+
+app.get('/index', (req, res) => {
+    res.render('index'); // Certifique-se de que você tenha um arquivo de modelo 'cadastro.ejs' definido
+    app.use(express.static(__dirname + '/views'));
+});
