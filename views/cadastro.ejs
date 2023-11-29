@@ -3,67 +3,258 @@
 
 <head>
   <title>Cadastro</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      text-align: center;
-    }
-
-    h1 {
-      background-color: #01ae7a;
-      color: #fff;
-      padding: 20px;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(180deg, #01ae7a 0%, rgba(255, 255, 255, 1) 100%);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
     form {
       background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      margin: 0 auto;
       padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      margin-top: 100px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-right: 100px;
     }
 
     label {
       display: block;
-      margin-top: 10px;
+      margin: 10px 0 5px;
+      color: #555;
     }
 
-    input[type="text"],
-    input[type="password"],
-    input[type="email"],
-    input[type="date"],
+    input,
     select {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
       border: 1px solid #ccc;
       border-radius: 4px;
-      box-sizing: border-box;
     }
 
     input[type="submit"] {
-      background-color: #01ae7a;
+      background-color: #4caf50;
       color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
       cursor: pointer;
-      margin-top: 15px;
     }
 
     input[type="submit"]:hover {
-      background-color: #01ae7a;
+      background-color: #45a049;
+    }
+
+    button {
+      background-color: #ccc;
+      color: #333;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #999;
+    }
+    .cabeçalho {
+  height: 150px;
+  width: 100%;
+  top: 0%;
+  position: absolute;
+  left: 0%;
+  margin: 0px;
+  border: 0px;
+
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 5%;
+  position: absolute;
+  left: 10px;
+  top: 10%;
+  align-items: center;
+  justify-items: center;
+}
+
+.titulo {
+  font-size: 40px;
+  position: absolute;
+  left: 150px;
+  top: -10px;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  cursor: default;
+}
+
+.assine-plano {
+  width: 250px;
+  height: 40px;
+  position: absolute;
+  top: 110px;
+  left: 20%;
+  background-color: #01AE7A;
+  border: 1px;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.quem-somos {
+  width: 250px;
+  height: 40px;
+  position: absolute;
+  top: 110px;
+  left: 40%;
+  background-color: #01AE7A;
+  border: 1px;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.atendimentos {
+  width: 250px;
+  height: 40px;
+  position: absolute;
+  top: 110px;
+  left: 60%;
+  background-color: #01AE7A;
+  border: 1px;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.contato {
+  width: 250px;
+  height: 40px;
+  position: absolute;
+  top: 110px;
+  left: 80%;
+  background-color: #01AE7A;
+  border: 1px;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.login {
+  position: absolute;
+  left: 80%;
+  background-color: white;
+  top: 10%;
+  height: 50px;
+  width: 200px;
+  border-radius: 100px;
+  border: 0px;
+  cursor: pointer;
+}
+
+.login2 {
+  height: 100%;
+  width: 50px;
+  left: 0%;
+  top: 0%;
+  position: absolute;
+}
+
+.login3 {
+  position: absolute;
+  font-size: 30px;
+  top: -15px;
+  left: 33%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.botoes-cabeçalho {
+  display: flex;
+  flex-direction: row;
+  margin-left: 200px;
+  margin-top: 65px;
+  padding: 13px;
+  text-decoration: none;
+  color: white;
+}
+
+nav {
+    float: right;
+    margin-top: 0px;
+    font-size: 25px;
+    margin-right: 100px;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    margin-right: 100px;
+    padding: 10px;
+    color: white;
+}
+
+li {
+    text-decoration: none;
+    color: white;
+    padding-left: 150px;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  #backButton {
+      position: absolute;
+      left: 240px;
+      top: 118px;
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
     }
   </style>
 </head>
 
 <body>
-  <h1>Cadastro</h1>
-  <form action="/cadastro" method="POST">
+  <div class="cabeçalho">
+    <a href="javascript:history.back()" id="backButton">&#8249; Voltar</a>
+    <a href="#" id="imageLink3"><img class="logo" src="assents/image_1.png"> </a>
+    <h1 class="titulo"> Health <br> Care </h1>
+    <div class="botoes-cabeçalho">
+      <nav>
+        <ul>
+          <li><a href="planos.html">Assine nosso plano</a></li>
+          <li><a href="#">Contatos</a></li>
+          <li><a href="#">Atendimentos</a></li>
+          <li><a href="#">Quem Nós Somos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <form method="POST" action="/cadastro" onsubmit="return validarFormulario()">
     <label for="username">Usuário:</label>
     <input type="text" id="username" name="username" required>
 
@@ -89,9 +280,86 @@
     </select>
 
     <input type="submit" value="Cadastrar">
+
+    <script>
+      function validarFormulario() {
+        // Validar CPF
+        var cpfInput = document.getElementById('cpf');
+        var cpfValue = cpfInput.value.replace(/[^\d]+/g, ''); // Remove caracteres não numéricos
+
+        if (!validarCPF(cpfValue)) {
+          alert('CPF inválido');
+          return false;
+        }
+
+        // Validar número de telefone
+        var telefoneInput = document.getElementById('numero_telefone');
+        var telefoneValue = telefoneInput.value.replace(/[^\d]+/g, ''); // Remove caracteres não numéricos
+
+        if (!validarTelefone(telefoneValue)) {
+          alert('Número de telefone inválido');
+          return false;
+        }
+
+        // Outras validações podem ser adicionadas aqui
+
+        return true;
+      }
+
+      // Função para validar CPF
+      function validarCPF(cpf) {
+        cpf = cpf.replace(/[^\d]+/g, ''); // Remove caracteres não numéricos
+
+        if (cpf === '' || cpf.length !== 11 || /^(\d)\1+$/g.test(cpf)) {
+          return false;
+        }
+
+        var digitoVerificador = function (cpfParcial) {
+          var soma = 0;
+          for (var i = 0; i < 9; i++) {
+            soma += parseInt(cpfParcial[i]) * (10 - i);
+          }
+
+          var resto = soma % 11;
+          var resultado = resto < 2 ? 0 : 11 - resto;
+
+          return resultado;
+        };
+
+        var primeiroDigito = digitoVerificador(cpf.substring(0, 9));
+        var segundoDigito = digitoVerificador(cpf.substring(0, 9) + primeiroDigito);
+
+        return cpf.substring(9) == primeiroDigito.toString() + segundoDigito.toString();
+      }
+
+      // Função para validar número de telefone do Brasil
+      function validarTelefone(telefone) {
+        // O número de telefone deve ter 11 dígitos
+        return /^\d{11}$/.test(telefone);
+      }
+
+      // Função para voltar à página anterior
+      function voltarPagina() {
+        history.back();
+      }
+
+      // Máscaras para o CPF e número de telefone
+      $(document).ready(function () {
+        $('#cpf').inputmask('999.999.999-99', {
+          removeMaskOnSubmit: true
+        });
+
+        $('#numero_telefone').inputmask('(99) 99999-9999', {
+          removeMaskOnSubmit: true
+        });
+      });
+      const loginBtn = document.querySelector("#imageLink3");
+  loginBtn.addEventListener("click", function () {
+    window.location.href = "/index";
+    });
+    
+    </script>
   </form>
 </body>
-
-
 
 </html>
