@@ -53,12 +53,16 @@ body {
   height: 40px;
   position: absolute;
   top: 110px;
-  left: 450px;
+  left: px;
   background-color: #01AE7A;
   border: 1px;
   font-size: 25px;
   cursor: pointer;
   color: white;
+}
+.a_right{
+  
+  display:inline-block;
 }
 
 
@@ -377,6 +381,8 @@ body {
   padding: 13px;
   text-decoration: none;
   color: white;
+  text-align: right;
+
 }
 
 nav {
@@ -388,6 +394,9 @@ nav {
 }
 
 ul {
+
+  text-align: right;
+  
     list-style-type: none;
     margin-right: 100px;
     padding: 10px;
@@ -395,9 +404,12 @@ ul {
 }
 
 li {
+  margin-left: 500px;
+  text-align: right;
+  margin-top: -6px;
     text-decoration: none;
     color: white;
-    padding-left: 150px;
+    font-size: 36px;
 }
 
 ul {
