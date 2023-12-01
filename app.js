@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
     res.render('index');
     app.use(express.static(__dirname + '/views'));
     app.use(express.static(__dirname + '/'));
-    });
+});
 
 // Render the agendamento.ejs view
 app.get('/agendamento', (req, res) => {
@@ -143,17 +143,17 @@ app.post('/cadastro', async (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login'); // Certifique-se de que você tenha um arquivo de modelo 'login.ejs' definido
 });
-
 app.post('/login', (req, res) => {
     const { username, password, tipo } = req.body;
 
     // Consulta para buscar o ID do usuário com base no nome de usuário e senha
-    const loginQuery = 'SELECT user_id FROM cadastro WHERE username = ? AND password = ? AND tipo = ?';
+    const loginQuery = 'SELECT user_id, tipo FROM cadastro WHERE username = ? AND password = ? AND tipo = ?';
     newDb.query(loginQuery, [username, password, tipo], (err, result) => {
         if (err) {
             res.status(500).send('Erro no servidor ao fazer login');
         } else if (result.length > 0) {
             const user_id = result[0].user_id;
+            const user_tipo = result[0].tipo;
 
             // Consulta para obter informações de login com base no ID do usuário
             const userInfoQuery = 'SELECT * FROM login WHERE user_id = ?';
@@ -162,14 +162,36 @@ app.post('/login', (req, res) => {
                     res.status(500).send('Erro no servidor ao buscar informações de login');
                 } else {
                     // Você pode acessar os dados de login como result[0].last_login
-                    res.redirect('/Teladeagendamento');
-                    app.use(express.static(__dirname +  '/'));
+
+                    // Adicione redirecionamentos com base no tipo de usuário
+                    if (user_tipo === 'medico') {
+                        res.redirect('/teladomedico');
+                    } else if (user_tipo === 'paciente') {
+                        res.redirect('/TelaPaciente.html');
+                    }
                 }
             });
         } else {
             res.render('login', { error: 'Nome de usuário ou senha incorretos' });
         }
     });
+});
+
+// Adicione rotas para cada tipo de usuário
+app.get('/pagina-para-tipo-1', (req, res) => {
+    res.render('pagina-para-tipo-1');
+    app.use(express.static(__dirname + '/views'));
+});
+
+app.get('/pagina-para-tipo-2', (req, res) => {
+    res.render('pagina-para-tipo-2');
+    app.use(express.static(__dirname + '/views'));
+});
+
+// Rota padrão para outros tipos de usuários
+app.get('/pagina-padrão-para-outros-tipos', (req, res) => {
+    res.render('pagina-padrão-para-outros-tipos');
+    app.use(express.static(__dirname + '/views'));
 });
 
 app.get('/Teladeagendamento', (req, res) => {
@@ -179,18 +201,18 @@ app.get('/Teladeagendamento', (req, res) => {
 
 app.post('/Teladeagendamento', (req, res) => {
     const { data, horario, especialidade } = req.body;
-  
+
     const query = 'INSERT INTO agendamento (data, horario, especialidade) VALUES (?, ?, ?)';
-  
+
     db.query(query, [data, horario, especialidade], (err, result) => {
         if (err) {
             console.error('Erro ao agendar a consulta', err);
             res.send('Erro ao agendar a consulta <a href="/Teladeagendamento"> Voltar para a página de agendamento</a>.');
-          } else {
+        } else {
             res.send('Agendamento feito com sucesso <a href="/Teladeagendamento"> Voltar para a página de agendamento</a>');
-          }
+        }
     });
-  });
+});
 
 app.use(express.static(__dirname + '/assets'));
 app.use(express.static(__dirname + '/Images'));
@@ -204,3 +226,16 @@ app.get('/index', (req, res) => {
     res.render('index'); // Certifique-se de que você tenha um arquivo de modelo 'cadastro.ejs' definido
     app.use(express.static(__dirname + '/views'));
 });
+
+app.get('/teladomedico', (req, res) => {
+    const query = 'SELECT * FROM agendamento';
+    db.query(query, (err, result) => {
+        if (err) {
+            console.error('Erro ao buscar agendamentos: ' + err);
+            res.status(500).send('Erro ao buscar agendamentos.');
+        } else {
+            res.render('teladomedico', { agendamentos: result });
+        }
+    });
+});
+

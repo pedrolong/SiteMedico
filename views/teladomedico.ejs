@@ -18,43 +18,25 @@
 </head>
 
 <body>
-    <div class="e559_67">
-     
-        <div class="e557_85"></div>
-        <div class="e559_297"></div>
-       
-        <div class="e557_86"></div>
-        <div class="e559_167"></div><span class="e559_184">Health Care </span>
-        <button href="seta.png">Voltar</button>
-        <div class="e557_88"></div><span class="e572_216">27/1 Diego Miranda </span>
-        <div class="e557_89"></div>
-        <div class="e557_90"></div>
-        <div class="e572_215"></div>
-        <div class="e557_91"></div><span class="e572_217"> Diego Miranda
-          diegomo@gmail.com
-         
-          </div>
-           </span>
-        <div class="e557_197">
-            <div class="e557_92"></div>
-        </div>
-
-
-        <div class="logo"></div>
-
-        <div class="e557_142"></div>
-        <div class="e559_182"></div><span class="e559_183">Dr.lucas</span><span class="e557_192">Bem Vindo!</span>
-        <div class="e634_19">
-            <div class="e634_20"></div>
-            <div class="e634_21"></div>
-        </div><span class="e559_195">25/1 Pedro H </span><span class="e559_179">Próximas consultas </span><span
-            class="e559_186">Contato dos pacientes </span>
-        <div class="e573_201"></div>
-        <div class="e573_202"></div><span class="e559_189">Pedro Henrique
-           
-            pedrohlo@gmail.com </span><span class="e634_22">ver relatorio </span><span class="e634_23">Clique
-            aqui
-            para ver relatorio geral </span>
+    <h1>Agendamentos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Especialidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% agendamentos.forEach(agendamento => { %>
+                <tr>
+                    <td><%= agendamento.data %></td>
+                    <td><%= agendamento.horario %></td>
+                    <td><%= agendamento.especialidade %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
 </body>
 
 
