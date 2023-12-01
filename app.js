@@ -178,21 +178,16 @@ app.post('/login', (req, res) => {
 });
 
 // Adicione rotas para cada tipo de usuário
-app.get('/pagina-para-tipo-1', (req, res) => {
-    res.render('pagina-para-tipo-1');
+app.get('/teladomedico', (req, res) => {
+    res.render('teladomedico');
     app.use(express.static(__dirname + '/views'));
 });
 
-app.get('/pagina-para-tipo-2', (req, res) => {
-    res.render('pagina-para-tipo-2');
+app.get('/TelaPaciente.html', (req, res) => {
+    res.render('TelaPaciente.html');
     app.use(express.static(__dirname + '/views'));
 });
 
-// Rota padrão para outros tipos de usuários
-app.get('/pagina-padrão-para-outros-tipos', (req, res) => {
-    res.render('pagina-padrão-para-outros-tipos');
-    app.use(express.static(__dirname + '/views'));
-});
 
 app.get('/Teladeagendamento', (req, res) => {
     res.render('Teladeagendamento');
