@@ -167,7 +167,7 @@ app.post('/login', (req, res) => {
                     if (user_tipo === 'medico') {
                         res.redirect('/teladomedico');
                     } else if (user_tipo === 'paciente') {
-                        res.redirect('/TelaPaciente.html');
+                        res.redirect('/TelaPaciente');
                     }
                 }
             });
@@ -183,8 +183,8 @@ app.get('/teladomedico', (req, res) => {
     app.use(express.static(__dirname + '/views'));
 });
 
-app.get('/TelaPaciente.html', (req, res) => {
-    res.render('TelaPaciente.html');
+app.get('/TelaPaciente', (req, res) => {
+    res.render('TelaPaciente');
     app.use(express.static(__dirname + '/views'));
 });
 
