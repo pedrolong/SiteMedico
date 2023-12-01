@@ -93,25 +93,47 @@ app.get('/cadastro', (req, res) => {
     res.render('cadastro'); // Certifique-se de que você tenha um arquivo de modelo 'cadastro.ejs' definido
 });
 
-app.post('/cadastro', (req, res) => {
+app.post('/cadastro', async (req, res) => {
     const { username, password, email, cpf, numero_telefone, data_nascimento, tipo } = req.body;
 
-    // Consulta para inserir na tabela de cadastro
-    const cadastroQuery = 'INSERT INTO cadastro (username, password, email, cpf, numero_telefone, data_nascimento, tipo) VALUES (?, ?, ?, ?, ?, ?, ?)';
-    newDb.query(cadastroQuery, [username, password, email, cpf, numero_telefone, data_nascimento, tipo], (err, result) => {
+    // Verificar se o email, telefone ou CPF já existem no banco de dados
+    const checkDuplicateQuery = 'SELECT * FROM cadastro WHERE email = ? OR numero_telefone = ? OR cpf = ?';
+    newDb.query(checkDuplicateQuery, [email, numero_telefone, cpf], (err, result) => {
         if (err) {
-            res.status(500).send('Erro no servidor ao cadastrar');
-        } else {
-            const user_id = result.insertId; // Obtém o ID do usuário inserido
+            res.status(500).send('Erro no servidor ao verificar dados duplicados');
+        } else if (result.length > 0) {
+            // Dados duplicados encontrados, determine qual dado está duplicado
+            const duplicateFields = [];
+            result.forEach((row) => {
+                if (row.email === email) duplicateFields.push('E-mail');
+                if (row.numero_telefone === numero_telefone) duplicateFields.push('Número de Telefone');
+                if (row.cpf === cpf) duplicateFields.push('CPF');
+            });
 
-            // Consulta para inserir na tabela de login relacionada ao ID do usuário
-            const loginQuery = 'INSERT INTO login (user_id, last_login) VALUES (?, NOW())';
-            newDb.query(loginQuery, [user_id], (err, result) => {
+            // Construa a mensagem de erro informando quais dados estão duplicados
+            const errorMessage = `Esse ${duplicateFields.join(', ')} já foi cadastrado. verifique suas informações.`;
+
+            // Envie a mensagem de erro para o cliente
+            res.render('cadastro', { error: errorMessage, layout: 'layouts/layout' });
+        } else {
+            // Prossiga com a inserção dos dados no banco de dados
+            const cadastroQuery = 'INSERT INTO cadastro (username, password, email, cpf, numero_telefone, data_nascimento, tipo) VALUES (?, ?, ?, ?, ?, ?, ?)';
+            newDb.query(cadastroQuery, [username, password, email, cpf, numero_telefone, data_nascimento, tipo], (err, result) => {
                 if (err) {
-                    res.status(500).send('Erro no servidor ao criar login');
+                    res.status(500).send('Erro no servidor ao cadastrar');
                 } else {
-                    res.redirect('/login');
-                    app.use(express.static(__dirname +  '/'));
+                    const user_id = result.insertId;
+
+                    // Consulta para inserir na tabela de login relacionada ao ID do usuário
+                    const loginQuery = 'INSERT INTO login (user_id, last_login) VALUES (?, NOW())';
+                    newDb.query(loginQuery, [user_id], (err, result) => {
+                        if (err) {
+                            res.status(500).send('Erro no servidor ao criar login');
+                        } else {
+                            res.redirect('/login');
+                            app.use(express.static(__dirname + '/'));
+                        }
+                    });
                 }
             });
         }
