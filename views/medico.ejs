@@ -18,10 +18,25 @@
 </head>
 
 <body>
-	
-
-			<a href="teladomedico2"><button>Agendamentos </button> </a>
-
+    <h1>Agendamentos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Especialidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(function(rows) { %>
+                <tr>
+                    <td><%= rows.data %></td>
+                    <td><%= rows.horario %></td>
+                    <td><%= rows.especialidade %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
 </body>
 
 

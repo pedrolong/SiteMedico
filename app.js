@@ -75,7 +75,7 @@ app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
 
 const newDb = mysql.createConnection({
-    host: 'localhost',
+    host: '10.144.166.48',
     user: 'phpmyadmin',
     password: 'aluno',
     database: 'cadastros_medical_group',
@@ -222,15 +222,25 @@ app.get('/index', (req, res) => {
     app.use(express.static(__dirname + '/views'));
 });
 
-app.get('/teladomedico', (req, res) => {
+/* app.get('/teladomedico', (req, res) => {
     const query = 'SELECT * FROM agendamento';
     db.query(query, (err, result) => {
         if (err) {
             console.error('Erro ao buscar agendamentos: ' + err);
             res.status(500).send('Erro ao buscar agendamentos.');
         } else {
-            res.render('teladomedico', { agendamentos: result });
+            const cb = 'SELECT data AND horario AND especialidade FROM agendamento';
+            db.query(cb,(err,rows)=>{
+            res.render('teladomedico', { data: rows })});
         }
     });
-});
+}); */
+app.get('/teladomedico2', (req,res) =>{
+    const query = 'SELECT data, horario, especialidade FROM agendamento';
+    db.query(query, (err, rows) => {
 
+        if(err)throw err;
+            res.render('medico', {data:rows});
+        
+    });
+})
