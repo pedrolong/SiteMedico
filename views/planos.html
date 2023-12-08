@@ -21,28 +21,31 @@
       <div class="botoes-cabeçalho">
         <nav>
           <ul>
-            <li><a class="hrefstyle" href="/index">Início</a></li>
+            <li><a href="planos.html">Assine nosso plano</a></li>
+            <li><a href="#">Contatos</a></li>
+            <li><a href="#">Atendimentos</a></li>
+            <li><a href="#">Quem Nós Somos</a></li>
           </ul>
         </nav>
       </div>
       <div class="div-h1">
         <h1 class="conheça-planos">Conheça nossos planos! Temos o melhor pra você</h1>
       </div>
-      <button class="plano-individual" onclick="window.location.href = 'Tela de Login.html';">
+      <button class="plano-individual" id="plano-individual" onclick="window.location.href = 'Tela de Login.html';">
         <h3 class="titulo-plano1">Plano Individual</h3>
         <br><br>
         <h1 class="texto1">Neste plano você tem direito a todos os médicos adultos disponíveis</h1>
         <br>
         <h1 class="preço1">R$ 297 / por mês</h1>
       </button>
-      <button class="plano-individual" onclick="window.location.href = 'Tela de Login.html';">
+      <button class="plano-individual" id="plano-individual" onclick="window.location.href = '/login'">
         <h3 class="titulo-plano1">Plano Casal</h3>
         <br><br>
         <h1 class="texto1">Neste plano você tem direito a todos os médicos adultos disponíveis e um integrante tem a opção dos médicos infantis</h1>
         <br>
         <h1 class="preço1">R$ 412 / por mês</h1>
       </button>
-      <button class="plano-individual" onclick="window.location.href = 'Tela de Login.html';">
+      <button class="plano-individual" id="plano-individual" onclick="window.location.href = 'Tela de Login.html';">
         <h3 class="titulo-plano1">Plano Família</h3>
         <br>
         <h1 class="texto1">Neste plano você tem direito a quatro integrantes e acesso a todos os médicos adultos disponíveis e dois integrantes aos médicos infantis</h1>
@@ -59,8 +62,23 @@
     });
     const loginBtn = document.querySelector(".login");
   loginBtn.addEventListener("click", function () {
-    window.location.href = "/login";
+    window.location.href = "/index";
     });
+
+    document.getElementById('plano-individual').addEventListener('click', function() {
+            // Redireciona para a página de login
+            window.location.href = '/login'; // Substitua '/login' pela rota correta da sua página de login
+        });
+
+        document.getElementById('planoBasico').addEventListener('click', function() {
+            // Redireciona para a página de login
+            window.location.href = '/login'; // Substitua '/login' pela rota correta da sua página de login
+        });
+
+        document.getElementById('planoBasico').addEventListener('click', function() {
+            // Redireciona para a página de login
+            window.location.href = '/login'; // Substitua '/login' pela rota correta da sua página de login
+        });
   </script>
 </body>
 
