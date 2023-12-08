@@ -34,6 +34,7 @@
       width: 500px;
       height: 20px;
       border-radius: 10px;
+      padding-left: 10px;
     }
 
     .input {
@@ -95,12 +96,38 @@
   color: white;
 }
 
+.quem-somos {
+  width: 250px;
+  height: 40px;
+  position: absolute;
+  top: 110px;
+  left: 40%;
+  background-color: #01AE7A;
+  border: 1px;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+}
+
 .atendimentos {
   width: 250px;
   height: 40px;
   position: absolute;
   top: 110px;
   left: 60%;
+  background-color: #01AE7A;
+  border: 1px;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.contato {
+  width: 250px;
+  height: 40px;
+  position: absolute;
+  top: 110px;
+  left: 80%;
   background-color: #01AE7A;
   border: 1px;
   font-size: 25px;
@@ -138,12 +165,12 @@
 
 .botoes-cabeçalho {
   display: flex;
-  flex-direction: row;
-  margin-left: 200px;
-  margin-top: 65px;
+  justify-content: center;
+  align-items: center;
   padding: 13px;
   text-decoration: none;
   color: white;
+  margin-top: 70px;
 }
 
 nav {
@@ -179,6 +206,8 @@ ul {
     color: white;
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
+    justify-content: center;
+    align-items: center;
   }
 
   #backButton {
@@ -201,9 +230,6 @@ ul {
       <nav>
         <ul>
           <li><a href="planos.html">Assine nosso plano</a></li>
-          <li><a href="#">Contatos</a></li>
-          <li><a href="#">Atendimentos</a></li>
-          <li><a href="#">Quem Nós Somos</a></li>
         </ul>
       </nav>
     </div>
@@ -213,7 +239,7 @@ ul {
     <% if (typeof error !== 'undefined') { %>
       <p style="color: red;"><%= error %></p>
     <% } %>
-    <input class="inputs" type="text" name="username" placeholder="Nome de usuário"><br><br>
+    <input class="inputs" type="email" name="email" placeholder="Digite seu email"><br><br>
     <input class="inputs" type="password" name="password" placeholder="Senha"><br><br>
     <input class="input" type="radio" name="tipo" value="medico"> Médico
     <input class="input" type="radio" name="tipo" value="paciente"> Paciente<br><br>
@@ -237,5 +263,4 @@ ul {
   });
   </script>
 </body>
-
 </html>

@@ -144,11 +144,11 @@ app.get('/login', (req, res) => {
     res.render('login'); // Certifique-se de que você tenha um arquivo de modelo 'login.ejs' definido
 });
 app.post('/login', (req, res) => {
-    const { username, password, tipo } = req.body;
+    const { email, password, tipo } = req.body;
 
     // Consulta para buscar o ID do usuário com base no nome de usuário e senha
-    const loginQuery = 'SELECT user_id, tipo FROM cadastro WHERE username = ? AND password = ? AND tipo = ?';
-    newDb.query(loginQuery, [username, password, tipo], (err, result) => {
+    const loginQuery = 'SELECT user_id, tipo FROM cadastro WHERE email = ? AND password = ? AND tipo = ?';
+    newDb.query(loginQuery, [email, password, tipo], (err, result) => {
         if (err) {
             res.status(500).send('Erro no servidor ao fazer login');
         } else if (result.length > 0) {
@@ -172,7 +172,7 @@ app.post('/login', (req, res) => {
                 }
             });
         } else {
-            res.render('login', { error: 'Nome de usuário ou senha incorretos' });
+            res.render('login', { error: 'Email ou senha incorretos' });
         }
     });
 });

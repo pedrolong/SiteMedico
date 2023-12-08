@@ -11,14 +11,14 @@
 
  .e559_67 {
      background-color: rgba(255, 255, 255, 1);
-     width: 1900px; 
-     height: 1024px;
+     width: 100%; 
+     height: 100%;
      position: absolute;
  }
 
  .e557_85 {
      background-color: rgba(1.452084481716156, 174.25000101327896, 122.41059109568596, 1);
-     width: 5000px; 
+     width: 100%; 
      height: 180px;
      position: absolute;
      left: 0px;
@@ -35,7 +35,7 @@
 
  .e557_86 {
      background-color: rgba(1.452084481716156, 174.25000101327896, 122.41059109568596, 1);
-     width: 1900px;
+     width: 100%;
      height: 130px;
      position: absolute;
      left: 0px;
