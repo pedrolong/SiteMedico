@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = 3010;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname)); // Serve arquivos estáticos na pasta atual (onde está sua página de agendamento)
@@ -204,7 +204,7 @@ app.post('/Teladeagendamento', (req, res) => {
             console.error('Erro ao agendar a consulta', err);
             res.send('Erro ao agendar a consulta <a href="/Teladeagendamento"> Voltar para a página de agendamento</a>.');
         } else {
-            res.send('Agendamento feito com sucesso <a href="/Teladeagendamento"> Voltar para a página de agendamento</a>');
+            res.render('Teladeagendamento');
         }
     });
 });
