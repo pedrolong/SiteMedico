@@ -3,12 +3,14 @@ const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const path = require('path');
+const session = require('express-session'); 
 
 const app = express();
 const port = 3010;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname)); // Serve arquivos estáticos na pasta atual (onde está sua página de agendamento)
+app.use(session({ secret: 'secreto', resave: false, saveUninitialized: false }));
 
 // Configurar a conexão com o banco de dados
 const db = mysql.createConnection({
@@ -154,6 +156,9 @@ app.post('/login', (req, res) => {
         } else if (result.length > 0) {
             const user_id = result[0].user_id;
             const user_tipo = result[0].tipo;
+            const usuario = results[0];
+            req.session.loggedin = true;
+            req.session.usertype = 'Paciente';
 
             // Consulta para obter informações de login com base no ID do usuário
             const userInfoQuery = 'SELECT * FROM login WHERE user_id = ?';
