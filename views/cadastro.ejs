@@ -237,6 +237,14 @@ ul {
     }
   </style>
   <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    const imageLink3 = document.getElementById("imageLink3");
+    imageLink3.addEventListener("click", function () {
+      window.location.href = "/index";
+    });
+  });
+
     function validarFormulario() {
       // Validar CPF
       var cpfInput = document.getElementById('cpf');
@@ -306,10 +314,7 @@ var strCPF = "12345678909";
         removeMaskOnSubmit: true
       });
     });
-    const loginBtn = document.querySelector("#imageLink3");
-loginBtn.addEventListener("click", function () {
-  window.location.href = "/index";
-  });
+    
   
   </script>
 </head>
