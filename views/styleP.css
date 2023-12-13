@@ -468,3 +468,11 @@
     height: 43px;
     width: 1000px;
  } 
+
+ .a2 {
+    position: absolute;
+    left: 120px;
+    font-size: 40px;
+    top: 15px;
+    z-index: 1;
+ }
