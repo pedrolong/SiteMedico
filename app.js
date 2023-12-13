@@ -3,8 +3,14 @@ const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const path = require('path');
-const session = require('express-session'); 
-
+const session = require('express-session');
+const isAuthenticated = (req, res, next) => {
+    if (req.session && req.session.loggedin) {
+        return next();
+    } else {
+        return res.redirect('/login');
+    }
+};
 const app = express();
 const port = 3010;
 
@@ -32,8 +38,14 @@ app.get('/', (req, res) => {
 });
 
 // Render the agendamento.ejs view
-app.get('/agendamento', (req, res) => {
-    res.render('agendamento.ejs');
+app.get('/agendamento', isAuthenticated, (req, res) => {
+    if (req.session.usertype === 'paciente') {
+        // Ações específicas para pacientes
+        res.render('agendamento.ejs');
+    } else {
+        // Redirecione ou trate de outra forma se o tipo de usuário não for paciente
+        res.redirect('/login');
+    }
 });
 
 db.connect(err => {
@@ -49,10 +61,15 @@ app.get('/teladeagenda', (req, res) => {
     console.log("/teladeagenda");
     res.sendFile(__dirname + './Tela de agenda.html');
 });
-app.get('/agendar', (req, res) => {
-    res.render('agendar');
-    ///esse agendar esta dentro do views
-})
+app.get('/agendar', isAuthenticated, (req, res) => {
+    if (req.session.usertype === 'paciente') {
+        // Ações específicas para pacientes
+        res.render('agendar');
+    } else {
+        // Redirecione ou trate de outra forma se o tipo de usuário não for paciente
+        res.redirect('/login');
+    }
+});
 // Rota para lidar com o agendamento
 app.post('/agendar', (req, res) => {
     console.log(req.body);
@@ -156,47 +173,56 @@ app.post('/login', (req, res) => {
         } else if (result.length > 0) {
             const user_id = result[0].user_id;
             const user_tipo = result[0].tipo;
-            const usuario = results[0];
+
+            // Adicione as informações à sessão
             req.session.loggedin = true;
-            req.session.usertype = 'Paciente';
+            req.session.userid = user_id;
+            req.session.usertype = user_tipo;
 
-            // Consulta para obter informações de login com base no ID do usuário
-            const userInfoQuery = 'SELECT * FROM login WHERE user_id = ?';
-            newDb.query(userInfoQuery, [user_id], (err, result) => {
-                if (err) {
-                    res.status(500).send('Erro no servidor ao buscar informações de login');
-                } else {
-                    // Você pode acessar os dados de login como result[0].last_login
+            // Você pode acessar os dados de login como result[0].last_login
 
-                    // Adicione redirecionamentos com base no tipo de usuário
-                    if (user_tipo === 'medico') {
-                        res.redirect('/teladomedico');
-                    } else if (user_tipo === 'paciente') {
-                        res.redirect('/TelaPaciente');
-                    }
-                }
-            });
+            // Adicione redirecionamentos com base no tipo de usuário
+            if (user_tipo === 'medico') {
+                res.redirect('/teladomedico');
+            } else if (user_tipo === 'paciente') {
+                res.redirect('/TelaPaciente');
+            }
         } else {
             res.render('login', { error: 'Email ou senha incorretos' });
         }
     });
 });
 
-// Adicione rotas para cada tipo de usuário
-app.get('/teladomedico', (req, res) => {
-    res.render('teladomedico');
-    app.use(express.static(__dirname + '/views'));
+// Em suas rotas protegidas, você pode verificar o tipo de usuário
+app.get('/teladomedico', isAuthenticated, (req, res) => {
+    if (req.session.usertype === 'medico') {
+        // Ações específicas para médicos
+        res.render('teladomedico');
+    } else {
+        // Redirecione ou trate de outra forma se o tipo de usuário não for médico
+        res.redirect('/login');
+    }
 });
 
-app.get('/TelaPaciente', (req, res) => {
-    res.render('TelaPaciente');
-    app.use(express.static(__dirname + '/views'));
+app.get('/TelaPaciente', isAuthenticated, (req, res) => {
+    if (req.session.usertype === 'paciente') {
+        // Ações específicas para pacientes
+        res.render('TelaPaciente');
+    } else {
+        // Redirecione ou trate de outra forma se o tipo de usuário não for paciente
+        res.redirect('/login');
+    }
 });
 
 
-app.get('/Teladeagendamento', (req, res) => {
-    res.render('Teladeagendamento');
-    app.use(express.static(__dirname + '/views')); // Certifique-se de que você tenha um arquivo de modelo 'login.ejs' definido
+app.get('/Teladeagendamento',isAuthenticated, (req, res) => {
+    if (req.session.usertype === 'paciente') {
+        // Ações específicas para pacientes
+        res.render('Teladeagendamento');
+    } else {
+        // Redirecione ou trate de outra forma se o tipo de usuário não for paciente
+        res.redirect('/login');
+    }
 });
 
 app.post('/Teladeagendamento', (req, res) => {
@@ -214,13 +240,10 @@ app.post('/Teladeagendamento', (req, res) => {
     });
 });
 
-app.use(express.static(__dirname + '/assets'));
-app.use(express.static(__dirname + '/Images'));
 
 
-app.listen(port, () => {
-    console.log(`Servidor Node.js está executando na porta ${port}`);
-});
+
+
 
 app.get('/index', (req, res) => {
     res.render('index'); // Certifique-se de que você tenha um arquivo de modelo 'cadastro.ejs' definido
@@ -240,12 +263,29 @@ app.get('/index', (req, res) => {
         }
     });
 }); */
-app.get('/teladomedico2', (req,res) =>{
+app.get('/teladomedico2', isAuthenticated, (req, res) => {
+    if (req.session.usertype === 'medico') {    
     const query = 'SELECT data, horario, especialidade FROM agendamento';
     db.query(query, (err, rows) => {
 
         if(err)throw err;
-            res.render('medico', {data:rows});
+            res.render('medico', {data:rows});  
         
     });
-})
+}})
+app.get('/logout', (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            return res.send('Erro ao fazer logout.');
+        }
+        res.redirect('/login');
+    });
+});
+
+app.use(express.static(__dirname + '/assets'));
+app.use(express.static(__dirname + '/Images'));
+
+
+app.listen(port, () => {
+    console.log(`Servidor Node.js está executando na porta ${port}`);
+});
