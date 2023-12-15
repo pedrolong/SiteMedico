@@ -96,44 +96,7 @@
   color: white;
 }
 
-.quem-somos {
-  width: 250px;
-  height: 40px;
-  position: absolute;
-  top: 110px;
-  left: 40%;
-  background-color: #01AE7A;
-  border: 1px;
-  font-size: 25px;
-  cursor: pointer;
-  color: white;
-}
 
-.atendimentos {
-  width: 250px;
-  height: 40px;
-  position: absolute;
-  top: 110px;
-  left: 60%;
-  background-color: #01AE7A;
-  border: 1px;
-  font-size: 25px;
-  cursor: pointer;
-  color: white;
-}
-
-.contato {
-  width: 250px;
-  height: 40px;
-  position: absolute;
-  top: 110px;
-  left: 80%;
-  background-color: #01AE7A;
-  border: 1px;
-  font-size: 25px;
-  cursor: pointer;
-  color: white;
-}
 
 .login {
   position: absolute;
@@ -234,7 +197,7 @@ ul {
       </nav>
     </div>
   </div>
-  <form method="post" action="/login" onsubmit="return validarFormulario()">
+  <form method="post" action="/login">
     <h1>Login</h1>
     <% if (typeof error !== 'undefined') { %>
       <p style="color: red;"><%= error %></p>
@@ -250,13 +213,7 @@ ul {
   </form>
 
   <script>
-    function validarFormulario() {
-      // Sua lógica de validação aqui
-
-      // Exemplo de retorno, ajuste conforme necessário
-      return true;
-    }
-
+    
     const imageLink3 = document.getElementById("imageLink3");
   imageLink3.addEventListener("click", function () {
     window.location.href = "/index";
